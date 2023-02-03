@@ -15,7 +15,7 @@ let spanBC = document.getElementById("bc");
 let spanPerimeter = document.getElementById("perimeter");
 
 calcBtn.addEventListener("click", () => {
-  // Get Coordinates from inputs
+  // Get coordinates from inputs
   let aCoords = {
     x: inputxA.value,
     y: inputyA.value,
@@ -29,16 +29,19 @@ calcBtn.addEventListener("click", () => {
     y: inputyC.value,
   };
 
+  // Calculate distances
   let distAB = dist(aCoords, bCoords);
   let distAC = dist(aCoords, cCoords);
   let distBC = dist(bCoords, cCoords);
 
+  // Update span tags
   spanAB.innerHTML = distAB;
   spanAC.innerHTML = distAC;
   spanBC.innerHTML = distBC;
   spanPerimeter.innerHTML = distAB + distAC + distBC;
 });
 
+// Calculate distance between two points
 function dist(coords1, coords2) {
   let a = coords1.x - coords2.x;
   let b = coords1.y - coords2.y;
